@@ -10,15 +10,14 @@ const external = [''];
  *
  * @returns {import('rollup').RollupOptions}
  */
-function getConfig({ input, format, output, banner }) {
-  const dir = `dist/${output || format}`;
+function getConfig(input, format) {
+  const dir = `dist/${format}`;
 
   return {
     input,
     output: {
       dir,
       format,
-      banner,
       sourcemap: true,
     },
     external,
@@ -38,9 +37,4 @@ function getConfig({ input, format, output, banner }) {
   };
 }
 
-export default [
-  getConfig({ input: 'src/cli.ts', format: 'cjs', output: 'bin', banner: '#!/usr/bin/env node' }),
-  getConfig({ input: 'src/index.ts', format: 'es' }),
-  getConfig({ input: 'src/index.ts', format: 'cjs' }),
-  getConfig({ input: { 'babel-plugin/index': 'src/babel-plugin/index.ts' }, format: 'cjs', output: 'babel' }),
-];
+export default [getConfig('src/index.ts', 'es'), getConfig('src/index.ts', 'cjs')];
