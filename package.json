@@ -1,6 +1,6 @@
 {
   "name": "@rosmarinus/babel-plugin-tree-cutting",
-  "version": "2.0.12",
+  "version": "2.1.0",
   "description": "a babel plugin to make project tree shaking possible",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
